@@ -34,10 +34,12 @@ termfreq_2 = termfreq[ top10k_indx , : ]
 term_appearances = 0 .< termfreq_2
 word_count = sum( term_appearances, dims = 1 )
 
-
-fewerThanTwo = firstSubset .< 2
-twoOrMore = 2 .<= firstSubset
+twoOrMore = 2 .<= word_count
+subset = dropdims( twoOrMore, dims = 1 )
 
 # Update the termfreq matrix to remove letters that appear less than twice
 # Assign to new variable
-tf_10k = termfreq_2[ 1:end, twoOrMore ]
+tf_10k = termfreq_2[ 1:end, subset ]
+# This matrix stores all the words that appear at least twice as defined by...
+# ... the top10k conditions.
+# Will use this subset for the remainder of the assignment.
