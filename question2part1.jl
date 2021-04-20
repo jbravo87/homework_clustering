@@ -9,6 +9,8 @@ termfreq = Serialization.deserialize( "termfreq.jldata" )
 
 terms = Serialization.deserialize( "terms.jldata" )
 
+
+
 funtion parse_rev( x )
     rev = x["revenue"]
     if ismissing( rev )
@@ -25,3 +27,6 @@ mostrev = sortperm( revenue, rev = True )
 top10k_indx = mostrev[ 1: 10000 ]
 
 top10k = irs990extract[ top10k_indx ]
+
+# To find the nonprofit with the highest revenue
+top10k[1]
