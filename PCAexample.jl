@@ -36,7 +36,7 @@ size( xy )
 xy[ 19, 1:2 ]
  # To properly format need the transpose of the matrix.
 
- xy1 = transpose( hcat(x,y) )
+xy1 = transpose( hcat(x,y) )
 
 # Going to fit a PCA with one two dimensional input and one dimensional output.
 # PCA is a dimension reducing technique
